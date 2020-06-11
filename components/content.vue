@@ -27,7 +27,8 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      inLink: ''
+      inLink: '',
+      api: 'https://api.shrtco.de/v2/'
     }
   }
 }

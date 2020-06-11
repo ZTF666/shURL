@@ -17,9 +17,7 @@ export default {
     Content
   },
   data() {
-    return {
-      api: 'https://api.shrtco.de/v2/'
-    }
+    return {}
   }
 }
 </script>
