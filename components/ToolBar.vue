@@ -1,33 +1,29 @@
 <template>
   <div>
-    <v-app-bar
-      absolute
-      color="#fcb69f"
-      dark
-      shrink-on-scroll
-      src="https://picsum.photos/1920/1080?random"
-      scroll-target="#scrolling-techniques-2"
-    >
+    <v-app-bar absolute color="#fcb69f" dark dense src="https://picsum.photos/1920/1080?random">
       <template v-slot:img="{ props }">
         <v-img v-bind="props" gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"></v-img>
       </template>
 
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-img
+        alt="Vuetify Logo"
+        class="shrink mr-2"
+        contain
+        src="https://raw.githubusercontent.com/ZTF666/Avatar-Fetcher/master/src/assets/me.png"
+        transition="scale-transition"
+        width="40"
+      />
 
-      <v-toolbar-title>Title</v-toolbar-title>
+      <v-toolbar-title>shURL | ショート URL</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
+      <v-btn icon href="#" target="_blank">
+        <v-icon>mdi-link</v-icon>
       </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
+      <v-btn icon href="https://github.com/ZTF666/shurl" target="_blank">
+        <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
   </div>
