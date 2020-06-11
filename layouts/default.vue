@@ -1,18 +1,17 @@
 <template>
   <v-app dark>
     <Toolbar />
-
-    <v-footer :fixed="fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import Toolbar from '../components/ToolBar'
+import Footer from '../components/Footer'
 export default {
   components: {
-    Toolbar
+    Toolbar,
+    Footer
   },
   data() {
     return {
