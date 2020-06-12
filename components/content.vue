@@ -10,7 +10,7 @@
                   label="Link"
                   outline
                   v-model="inLink"
-                  aria-autocomplete="false"
+                  required
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -31,9 +31,7 @@
     <v-card max-width="344" class="mx-auto mt-10">
       <v-list-item>
         <v-list-item-avatar color="grey">
-          <v-img
-            src="https://ztfportfolio.web.app/_nuxt/img/1fafa89.png"
-          ></v-img>
+          <v-img :src="img"></v-img>
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title class="justify-center">{{
@@ -45,13 +43,13 @@
 
       <v-img :src="img" height="100"></v-img>
 
-      <v-card-title class="justify-center" ref="text">{{ shurl }}</v-card-title>
+      <v-card-title class="justify-center">{{ shurl }}</v-card-title>
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn icon>
+        <!-- <v-btn text >
           <v-icon>mdi-floppy</v-icon>
-        </v-btn>
+        </v-btn> -->
       </v-card-actions>
     </v-card>
     <!-- END CONTENT -->
@@ -71,24 +69,29 @@ export default {
   },
   methods: {
     async shortenURL() {
-      if (this.inLink != null) {
-        this.msg = 'Your link is being processed ...'
-        let response = await axios.get(
-          `https://api.shrtco.de/v2/shorten?url=` + this.inLink
-        )
+      try {
+        if (this.inLink != '') {
+          this.msg = 'Your link is being processed ...'
+          let response = await axios.get(
+            `https://api.shrtco.de/v2/shorten?url=` + this.inLink
+          )
 
-        console.log(response.data.ok)
-        if (response.data.ok == true) {
-          this.shurl = response.data.result.short_link
-          this.msg = 'Your link is ready !'
-          console.log(this.shurl)
+          console.log(response.status)
+          if (response.data.ok == true) {
+            this.shurl = response.data.result.short_link
+            this.msg = 'Your link is ready !'
+            console.log(this.shurl)
+          } else if (response.data.ok == false) {
+            this.shurl =
+              'Sorry an error has occured , link disallowed or unknown error please retry '
+          }
         }
-        // console.log(response.data.result.short_link)
+        if (this.inLink == '') {
+          this.msg = 'Please paste a link'
+        }
+      } catch (e) {
+        this.shurl = `The link to website you provided is either disallowed or there's an error with the api , please retry`
       }
-    },
-    CtCb() {
-      this.$refs.text.select()
-      document.execCommand('copy')
     }
   }
 }
