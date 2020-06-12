@@ -27,7 +27,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon href="#" target="_blank">
+      <v-btn icon href="https://ztfportfolio.web.app" target="_blank">
         <v-icon>mdi-link</v-icon>
       </v-btn>
 

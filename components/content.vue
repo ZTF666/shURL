@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10">
+  <div class="mt-10 mb-10">
     <v-form @submit.prevent="shortenURL()">
       <v-container>
         <v-layout row wrap class="d-flex justify-center">
@@ -28,7 +28,7 @@
     </v-form>
     <!-- CONTENT -->
 
-    <v-card max-width="800" class="mx-auto mt-10">
+    <v-card max-width="800" class="mx-auto ">
       <v-list-item>
         <!-- <v-list-item-avatar color="grey"> -->
         <!-- <v-img :src="img"></v-img> -->
@@ -43,7 +43,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-img :src="img" height="400"></v-img>
+      <v-img :src="img" height="300"></v-img>
 
       <v-card-text class="justify-center">
         <div>
