@@ -30,9 +30,24 @@ export default {
       inLink: '',
       api: 'https://api.shrtco.de/v2/'
     }
+  },
+  methods:{
+    async shortenURL(){
+
+      try {
+        if (this.inLink != null) {
+          let response = await axios.get(
+            `https://api.shrtco.de/v2/` + this.inLink
+          )
+          console.log(response);
+          
+        }
+
+
+    }
+
   }
 }
 </script>
 
-<style>
-</style>
+<style></style>
