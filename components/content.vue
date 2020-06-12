@@ -25,16 +25,18 @@
 
     <v-card max-width="344" class="mx-auto mt-10">
       <v-list-item>
-        <!-- <v-list-item-avatar color="grey"></v-list-item-avatar> -->
+        <v-list-item-avatar color="grey">
+          <v-img src="https://ztfportfolio.web.app/_nuxt/img/1fafa89.png"></v-img>
+        </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title class>{{msg}}</v-list-item-title>
+          <v-list-item-title class="justify-center">{{msg}}</v-list-item-title>
           <!-- <v-list-item-subtitle>by Kurt Wagner</v-list-item-subtitle> -->
         </v-list-item-content>
       </v-list-item>
 
-      <v-img src="https://picsum.photos/1920/1080?random" height="100"></v-img>
+      <v-img :src="img" height="100"></v-img>
 
-      <v-card-text>{{shurl}}</v-card-text>
+      <v-card-title class="justify-center">{{shurl}}</v-card-title>
 
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -54,22 +56,23 @@ export default {
     return {
       inLink: '',
       shurl: '',
-
-      msg: ''
+      msg: '',
+      img: 'https://picsum.photos/1920/1080?random'
     }
   },
   methods: {
     async shortenURL() {
       if (this.inLink != null) {
-        this.msg = 'Your link is being processed .. please wait'
+        this.msg = 'Your link is being processed ...'
+        this.img = 'https://picsum.photos/1920/1080?random'
         let response = await axios.get(
           `https://api.shrtco.de/v2/shorten?url=` + this.inLink
         )
 
         console.log(response.data.ok)
         if (response.data.ok == true) {
+          this.img = 'https://picsum.photos/1920/1080?random'
           this.shurl = response.data.result.short_link
-
           this.msg = 'Your link is ready !'
           console.log(this.shurl)
         }
