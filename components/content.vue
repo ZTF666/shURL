@@ -64,14 +64,12 @@ export default {
     async shortenURL() {
       if (this.inLink != null) {
         this.msg = 'Your link is being processed ...'
-        this.img = 'https://picsum.photos/1920/1080?random'
         let response = await axios.get(
           `https://api.shrtco.de/v2/shorten?url=` + this.inLink
         )
 
         console.log(response.data.ok)
         if (response.data.ok == true) {
-          this.img = 'https://picsum.photos/1920/1080?random'
           this.shurl = response.data.result.short_link
           this.msg = 'Your link is ready !'
           console.log(this.shurl)
