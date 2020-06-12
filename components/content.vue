@@ -28,22 +28,28 @@
     </v-form>
     <!-- CONTENT -->
 
-    <v-card max-width="344" class="mx-auto mt-10">
+    <v-card max-width="800" class="mx-auto mt-10">
       <v-list-item>
-        <v-list-item-avatar color="grey">
-          <v-img :src="img"></v-img>
-        </v-list-item-avatar>
+        <!-- <v-list-item-avatar color="grey"> -->
+        <!-- <v-img :src="img"></v-img> -->
+        <!-- </v-list-item-avatar> -->
         <v-list-item-content>
-          <v-list-item-title class="justify-center">{{
-            msg
-          }}</v-list-item-title>
+          <v-list-item-text class="justify-center"
+            ><div>
+              <h1 class="headline text-md-center">{{ msg }}</h1>
+            </div></v-list-item-text
+          >
           <!-- <v-list-item-subtitle>by Kurt Wagner</v-list-item-subtitle> -->
         </v-list-item-content>
       </v-list-item>
 
-      <v-img :src="img" height="100"></v-img>
+      <v-img :src="img" height="400"></v-img>
 
-      <v-card-title class="justify-center">{{ shurl }}</v-card-title>
+      <v-card-text class="justify-center">
+        <div>
+          <h4 class="headline text-md-center">{{ shurl }}</h4>
+        </div>
+      </v-card-text>
 
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -81,16 +87,14 @@ export default {
             this.shurl = response.data.result.short_link
             this.msg = 'Your link is ready !'
             console.log(this.shurl)
-          } else if (response.data.ok == false) {
-            this.shurl =
-              'Sorry an error has occured , link disallowed or unknown error please retry '
           }
         }
         if (this.inLink == '') {
           this.msg = 'Please paste a link'
         }
       } catch (e) {
-        this.shurl = `The link to website you provided is either disallowed or there's an error with the api , please retry`
+        this.shurl =
+          'Sorry an error has occured , link disallowed or unknown error please retry '
       }
     }
   }
