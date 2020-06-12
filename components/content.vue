@@ -34,8 +34,7 @@
 
       <v-img src="https://picsum.photos/1920/1080?random" height="100"></v-img>
 
-      <v-card-text>{{shurl1}}</v-card-text>
-      <v-card-text>{{shurl2}}</v-card-text>
+      <v-card-text>{{shurl}}</v-card-text>
 
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -54,23 +53,25 @@ export default {
   data() {
     return {
       inLink: '',
-      shurl1: '',
-      shurl2: '',
+      shurl: '',
+
       msg: ''
     }
   },
   methods: {
     async shortenURL() {
       if (this.inLink != null) {
+        this.msg = 'Your link is being processed .. please wait'
         let response = await axios.get(
           `https://api.shrtco.de/v2/shorten?url=` + this.inLink
         )
+
         console.log(response.data.ok)
         if (response.data.ok == true) {
-          this.shurl1 = response.data.result.short_link
-          this.shurl2 = response.data.result.short_link2
-          console.log(this.shurl1)
-          console.log(this.shurl2)
+          this.shurl = response.data.result.short_link
+
+          this.msg = 'Your link is ready !'
+          console.log(this.shurl)
         }
         // console.log(response.data.result.short_link)
       }
