@@ -41,7 +41,7 @@ $ npm run generate
 ## Contact
 
 ```
-you can contact me at ZTF666@protonmail.ch or via my portfolio
+you can contact me at ZTF666@protonmail.ch
 
 ```
 
