@@ -57,9 +57,10 @@ you can contact me at ZTF666@protonmail.ch or via my portfolio
 
 ## License
 
-**💎GMTL | Get Me The Lyrics💎** released under the [MIT](LICENSE) License.
-<br><br>
-
 <div align="center">
+
+**💎shURL | ショート URL💎** released under the [MIT](LICENSE) License.
+<br><br>
 <strong><p>Made with 💘 by a 👨‍💻 on a 💻 | 2020 | ZTF666 - N.EA</p> </strong>
+
 </div>
