@@ -6,7 +6,12 @@
           <v-flex xs8 sm6 md6>
             <v-row class="d-flex justify-center">
               <v-col cols="12" sm="6" md="6">
-                <v-text-field label="Link" outline v-model="inLink" aria-autocomplete="false"></v-text-field>
+                <v-text-field
+                  label="Link"
+                  outline
+                  v-model="inLink"
+                  aria-autocomplete="false"
+                ></v-text-field>
               </v-col>
             </v-row>
 
@@ -26,17 +31,21 @@
     <v-card max-width="344" class="mx-auto mt-10">
       <v-list-item>
         <v-list-item-avatar color="grey">
-          <v-img src="https://ztfportfolio.web.app/_nuxt/img/1fafa89.png"></v-img>
+          <v-img
+            src="https://ztfportfolio.web.app/_nuxt/img/1fafa89.png"
+          ></v-img>
         </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title class="justify-center">{{msg}}</v-list-item-title>
+          <v-list-item-title class="justify-center">{{
+            msg
+          }}</v-list-item-title>
           <!-- <v-list-item-subtitle>by Kurt Wagner</v-list-item-subtitle> -->
         </v-list-item-content>
       </v-list-item>
 
       <v-img :src="img" height="100"></v-img>
 
-      <v-card-title class="justify-center">{{shurl}}</v-card-title>
+      <v-card-title class="justify-center" ref="text">{{ shurl }}</v-card-title>
 
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -76,6 +85,10 @@ export default {
         }
         // console.log(response.data.result.short_link)
       }
+    },
+    CtCb() {
+      this.$refs.text.select()
+      document.execCommand('copy')
     }
   }
 }
